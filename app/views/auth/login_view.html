@@ -1,0 +1,27 @@
+<form class="form-signin form-card" name="form">
+    <md-button class="md-fab md-mini form-button">
+        <md-icon class="material-icons"> https </md-icon>
+    </md-button>
+    <md-subheader class="md-no-sticky text-center">Inicio de Sesión</md-subheader>
+    <div class="form-control" layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Usuario</label>
+            <input ng-model="vm.username" type="email" required>
+        </md-input-container>
+    </div>
+    <div class="form-control" layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Contraseña</label>
+            <input ng-model="vm.password" type="password" minlength="6" required>
+        </md-input-container>
+    </div>
+    <div class="form-control" layout-gt-sm="row">
+        <md-button type="submit" class="md-raised md-accent md-button-circle" ng-disabled="form.$invalid" ng-click="vm.login()" style="width: 100%;">
+            <md-icon class="material-icons"> input </md-icon> Iniciar Sesión
+        </md-button>
+    </div>
+    <div layout="row" layout-sm="column" layout-align="center center" ng-show="vm.is_loading">
+        <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+    </div>
+    <h6 layout layout-align="center center" class="text-danger" style="margin-bottom:3px" ng-show="vm.error">Usuario y/o Contraseña no validos.</h6>
+</form>

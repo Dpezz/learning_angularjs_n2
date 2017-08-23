@@ -1,0 +1,21 @@
+<div>
+    <h2 class="md-headline page-header">
+        <md-button class="md-fab md-mini md-button-left" ng-if="item.backUrl" ng-click="back(item.backUrl)">
+            <md-tooltip md-direction="bottom">Volver</md-tooltip>
+            <md-icon class="material-icons"> chevron_left </md-icon>
+        </md-button>
+
+        <span>{{ item.label }}</span>
+
+        <span ng-if="item.name" class="text-muted">
+            <md-icon class="material-icons"> chevron_right </md-icon>
+            {{ item.name }}
+        </span>
+        <span flex></span>
+
+        <md-button class="md-fab md-mini md-button-right" hide-xs ng-if="item.newUrl" ng-click="new(item.newUrl)">
+            <md-tooltip md-direction="bottom">Nuevo</md-tooltip>
+            <md-icon class="material-icons"> add </md-icon>
+        </md-button>
+    </h2>
+</div>

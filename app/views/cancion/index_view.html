@@ -1,0 +1,45 @@
+<div class="container">
+    <dpz-toolbar item-data="vm.item"></dpz-toolbar>
+    <!-- search  -->
+    <md-toolbar style="margin-top: 40px">
+        <div class="md-toolbar-tools bg-white">
+            <md-input-container class="md-icon-float md-block" flex>
+                <label>Buscar</label>
+                <md-icon class="material-icons  material-icons-primary"> search </md-icon>
+                <input type="text" ng-model="vm.search">
+            </md-input-container>
+        </div>
+    </md-toolbar>
+    <md-table-container>
+        <table md-table md-progress="promise">
+            <thead md-head md-order="vm.query.order" md-on-reorder="vm.onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="key">#</th>
+                    <th md-column md-order-by="title">Título</th>
+                    <th md-column md-order-by="artist">Artista</th>
+                    <th md-column md-order-by="type">Género</th>
+                    <th md-column></th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row ng-repeat="(key,item) in vm.canciones | filter:vm.search | orderBy: vm.query.order | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit">
+                    <td md-cell>{{key + 1}}</td>
+                    <td md-cell>{{item.title | uppercase }}</td>
+                    <td md-cell>{{item.artist | uppercase}}</td>
+                    <td md-cell>{{item.type | uppercase}}</td>
+                    <td md-cell>
+                        <md-button aria-label="edit" class="md-icon-button" ng-click="vm.edit(item)">
+                            <md-icon class="material-icons"> search </md-icon>
+                            <md-tooltip md-direction="bottom">Editar</md-tooltip>
+                        </md-button>
+                        <md-button aria-label="delete" class="md-icon-button" ng-click="vm.destroy(item)">
+                            <md-icon class="material-icons material-icons-danger"> delete </md-icon>
+                            <md-tooltip md-direction="bottom">Eliminar</md-tooltip>
+                        </md-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{ vm.canciones.length }}" md-page-select></md-table-pagination>
+    </md-table-container>
+</div>

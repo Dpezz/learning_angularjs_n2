@@ -1,0 +1,47 @@
+<div class="section-content" layout="column" ng-cloak>
+    <!-- start toolbar -->
+    <md-toolbar class="md-hue-1">
+        <div class="md-toolbar-tools">
+            <!-- logo  -->
+            <h2 class="text-center">
+                <img src="../../assets/img/angularjs.svg" alt="">
+            </h2>
+
+            <span flex></span>
+
+            <!-- User -->
+            <div hide-xs ng-show="isAuthenticated">
+                <h5 style="margin:inherit;text-align:right">
+                    <strong>{{ currentUser.name | uppercase }}</strong>
+                </h5>
+                <h6 class="text-small" style="margin:inherit;font-weight:normal;letter-spacing:1px;text-align:right">
+                    {{ currentUser.email | lowercase }}
+                </h6>
+            </div>
+
+            <!-- menu -->
+            <md-menu ng-show="isAuthenticated" md-position-mode="target-right target">
+                <md-button aria-label="Open menu" class="md-icon-button" ng-click="$mdMenu.open()">
+                    <md-icon md-menu-origin class="material-icons"> more_vert </md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="vm.logout()">
+                            <md-icon md-menu-origin class="material-icons"> exit_to_app </md-icon>
+                            Salir
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+    <!-- section -->
+
+    <section layout="row" flex>
+        <!-- content -->
+        <md-content flex layout-padding>
+            <ui-view name="content" flex layout-padding></ui-view>
+        </md-content>
+        <!-- end content -->
+    </section>
+</div>
