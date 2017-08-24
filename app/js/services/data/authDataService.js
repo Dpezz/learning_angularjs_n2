@@ -10,5 +10,8 @@ function authDataService(dataService) {
         get_refresh: function () {
             return dataService.httpGet('auth/refresh');
         },
+        post: function (usuario) {
+            return dataService.httpPost('auth/register', usuario);
+        },
     };
 }

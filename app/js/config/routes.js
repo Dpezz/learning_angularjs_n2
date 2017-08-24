@@ -26,6 +26,18 @@ function routes($stateProvider) {
                 }
             }
         })
+        //  Register
+        .state('app.register', {
+            url: '/register',
+            access: [],
+            views: {
+                content: {
+                    templateUrl: 'views/auth/register_view.html',
+                    controller: 'registerController',
+                    controllerAs: 'vm',
+                }
+            }
+        })
 
         // canciones
         .state('app.canciones', {

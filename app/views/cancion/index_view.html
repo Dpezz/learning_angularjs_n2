@@ -18,6 +18,7 @@
                     <th md-column md-order-by="title">Título</th>
                     <th md-column md-order-by="artist">Artista</th>
                     <th md-column md-order-by="type">Género</th>
+                    <th md-column md-order-by="usuario">Usuario</th>
                     <th md-column></th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td md-cell>{{item.title | uppercase }}</td>
                     <td md-cell>{{item.artist | uppercase}}</td>
                     <td md-cell>{{item.type | uppercase}}</td>
+                    <td md-cell>{{item.usuario | uppercase}}</td>
                     <td md-cell>
                         <md-button aria-label="edit" class="md-icon-button" ng-click="vm.edit(item)">
                             <md-icon class="material-icons"> search </md-icon>
