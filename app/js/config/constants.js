@@ -1,8 +1,8 @@
 angular
     .module('app')
     .constant('env', {
-        // DOMAIN: 'http://api-urbana.octano.cl',
-        DOMAIN: 'http://localhost:8000',
+        DOMAIN: 'http://api-urbana.octano.cl',
+        // DOMAIN: 'http://localhost:8000',
         ENDPOINT_API: '/api',
         API_PATH: '/api/',
         BASE_PATH: '/',
